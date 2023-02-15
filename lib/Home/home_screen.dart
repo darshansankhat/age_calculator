@@ -14,8 +14,12 @@ class _ClaculatorState extends State<Claculator> {
   TextEditingController txtDD = TextEditingController();
   TextEditingController txtMM = TextEditingController();
   TextEditingController txtYYYY = TextEditingController();
-  int DD=00,MM=00,YYYY=00;
-  String? dd,mm,yy;
+  TextEditingController txtdd = TextEditingController();
+  TextEditingController txtmm = TextEditingController();
+  TextEditingController txtyy = TextEditingController();
+  int? DD,MM,YYYY;
+  int? dd,mm,yy;
+  int? a,a1,a2;
   String imagePath = "";
 
   @override
@@ -137,6 +141,7 @@ class _ClaculatorState extends State<Claculator> {
                       width: 120,
                       color: Color(0xff1A1A1A),
                       child: TextField(
+                        controller: txtdd,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -159,7 +164,7 @@ class _ClaculatorState extends State<Claculator> {
                       width: 120,
                       color: Color(0xff1A1A1A),
                       child: TextField(
-
+                        controller: txtmm,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -182,7 +187,7 @@ class _ClaculatorState extends State<Claculator> {
                       width: 120,
                       color: Color(0xff1A1A1A),
                       child: TextField(
-
+                        controller: txtyy,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -217,12 +222,13 @@ class _ClaculatorState extends State<Claculator> {
                       InkWell(
                         onTap: () {
                           setState(() {
-                            dd = txtDD.text;
-                            mm = txtMM.text;
-                            yy = txtYYYY.text;
-                            // DD = int.parse("$dd");
-                            // MM = int.parse("$mm");
-                            // YYYY = int.parse("$yy");
+                            DD = int.parse(txtDD.text);
+                            MM = int.parse(txtMM.text);
+                            YYYY = int.parse(txtYYYY.text);
+                            dd = int.parse(txtdd.text);
+                            mm = int.parse(txtmm.text);
+                            yy = int.parse(txtyy.text);
+                            a2=YYYY! - yy!;
                           });
                         },
                         child: Text(
@@ -236,9 +242,12 @@ class _ClaculatorState extends State<Claculator> {
                       InkWell(
                         onTap: () {
                           setState(() {
-                            dd="";
-                            mm="";
-                            yy="";
+                            a2=0;
+                            DD=0;
+                            MM=0;
+                            YYYY=0;
+                            mm=0;
+                            dd=0;
                           });
                         },
                         child: Text(
@@ -290,7 +299,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$dd",
+                            "$a2",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
@@ -307,7 +316,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$mm",
+                            "$MM",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
@@ -324,7 +333,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$yy",
+                            "$DD",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
@@ -387,7 +396,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$yy",
+                            "$dd",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
