@@ -228,6 +228,8 @@ class _ClaculatorState extends State<Claculator> {
                             dd = int.parse(txtdd.text);
                             mm = int.parse(txtmm.text);
                             yy = int.parse(txtyy.text);
+                            a=DD!-dd!;
+                            a1=MM!-mm!;
                             a2=YYYY! - yy!;
                           });
                         },
@@ -243,6 +245,8 @@ class _ClaculatorState extends State<Claculator> {
                         onTap: () {
                           setState(() {
                             a2=0;
+                            a1=0;
+                            a=0;
                             DD=0;
                             MM=0;
                             YYYY=0;
@@ -316,7 +320,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$MM",
+                            "$a1",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
@@ -333,7 +337,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$DD",
+                            "$a",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
@@ -379,7 +383,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$mm",
+                            "$a1",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
@@ -396,7 +400,7 @@ class _ClaculatorState extends State<Claculator> {
                                 color: Color(0xff01F0B1), fontSize: 18),
                           ),
                           Text(
-                            "$dd",
+                            "$a",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ],
